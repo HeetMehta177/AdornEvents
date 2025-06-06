@@ -1,0 +1,458 @@
+@font-face {
+  font-family: NHD;
+  src: url(./assets/NeueHaasDisplayRoman.ttf);
+}
+
+@font-face {
+  font-family: NHDL;
+  src: url(./assets/NeueHaasDisplayLight.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "freight big pro";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.loader,
+.page1 {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loader {
+  background-color: rgb(0, 0, 0);
+  /* color: #ffffff; */
+  color: beige;
+  position: fixed;
+  z-index: 10;
+}
+
+.loader video {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 7;
+}
+
+.loader h1 {
+  position: relative;
+  z-index: 8;
+}
+
+.yellow {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  /* background-color: #e9d0e5; */
+  background-color: beige;
+  z-index: 10;
+}
+.logo {
+  width: 8vw;
+  height: 5vw;
+  position: absolute;
+  top: 2vw;
+  left: 4vw;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  z-index: 9;
+  padding: 2vw 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 3vw;
+  padding: 1rem 1rem;
+  position: relative;
+}
+
+.nav-links > div a {
+  font-size: 1rem;
+  font-family: NHD;
+  font-weight: 500;
+  color: black;
+}
+
+.nav-links .icon {
+  width: 2.5vw;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px; /* Adjust this value for spacing between text and underline */
+  width: 100%;
+  height: 0.5px; /* Adjust the thickness of the underline */
+  /* background-color: black; Color of the underline */
+  background-color: beige; /* Color of the underline */
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.link1 {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.link2 {
+  position: absolute;
+  transition: background-color 0.3s ease;
+  top: 30%;
+  left: 50%;
+}
+
+.link3 {
+  position: absolute;
+  transition: background-color 0.3s ease;
+  top: 30%;
+  left: 70%;
+}
+
+.link4 {
+  position: absolute;
+  transition: background-color 0.3s ease;
+  padding: 0 3vw;
+  top: 0%;
+  left: 90%;
+}
+
+.page1 {
+  /* background-color: #edcce7; */
+  background-color: beige;
+  flex-direction: column;
+}
+
+.loader h1,
+.page1 h1 {
+  font-size: 6.9vw;
+  font-weight: 100;
+  line-height: 5vw;
+  letter-spacing: -3px;
+  transition: all ease-in 0.1s;
+}
+
+.page1 h1 {
+  margin-top: 23vh;
+}
+section {
+  margin-top: 20vh;
+  padding: 0 5vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section > span a {
+  font-family: NHD;
+  text-decoration: none;
+  color: black;
+  font-size: 1.1vw;
+}
+
+.arrowUp {
+  cursor: pointer;
+}
+
+.page2 {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  /* color: #ffffff; */
+  color: beige;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.elem {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.elem .blur {
+  position: absolute;
+  width: 35%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to right, bisque, bisque, bisque);
+  box-shadow: 10px 0px 20px 20px bisque, -10px 0px 20px 20px bisque;
+  height: 100%;
+  z-index: 8;
+}
+
+.elem h2 {
+  font-size: 6.8vw;
+  text-transform: capitalize;
+  font-weight: 100;
+  position: relative;
+  line-height: 5vw;
+  z-index: 9;
+}
+
+.elem .moving {
+  background-color: bisque;
+  width: 100%;
+  white-space: nowrap;
+  padding: 0.6rem 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -45%) scaleY(0);
+  transition: all ease 0.3s;
+  overflow: hidden;
+}
+
+.elem .moving .moving-in {
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: moving;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.elem .moving .moving-in h5 {
+  color: black;
+  font-family: NHDL;
+  display: inline-block;
+  font-size: 1.2vw;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-right: 2rem;
+  transition: all ease 0.3s;
+  opacity: 0;
+  transition-delay: 0.2s;
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.elem:hover .moving {
+  transform: translate(0, -45%) scaleY(1);
+}
+
+.elem:hover .moving h5 {
+  opacity: 1;
+}
+
+.elem:hover h2 {
+  font-style: italic;
+  color: black;
+}
+
+.page3 {
+  min-height: 100vh;
+  padding: 2vw 2vw;
+  width: 100%;
+}
+
+.image-container {
+  /* padding: 1vw 1vw; */
+  display: flex;
+  gap: 2vw;
+  /* align-items: flex-start; */
+  /* flex-wrap: wrap; */
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.image-div {
+  /* height: 35vw;
+    width: 29vw; */
+  position: relative;
+  overflow: hidden;
+  /* margin: 1.5vw 1.5vw; */
+  cursor: pointer;
+}
+
+.image-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all ease-in 0.3s;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.066);
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw;
+  transition: all ease-in 0.2s;
+}
+
+.overlay p {
+  font-size: 3vw;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  line-height: 2.5vw;
+  opacity: 0;
+  transition: all ease-in 0.2s;
+}
+
+.image-div:hover .overlay {
+  background-color: black;
+}
+
+.image-div:hover .overlay p {
+  opacity: 1;
+}
+
+.image-div:hover img {
+  scale: 1.1;
+}
+
+/* @media(max-width:768px){
+    .image-container{
+        flex-direction: column;
+    }
+} */
+
+footer {
+  height: 40vh;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+footer h2 {
+  font-family: NHDL;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vw;
+  cursor: pointer;
+}
+
+footer .foot {
+  font-family: NHDL;
+  font-weight: 100;
+  height: 50%;
+  width: 100%;
+  background-color: black;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot-links {
+  width: 100%;
+  margin: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-link1 {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px; /* Adjust this value for spacing between text and underline */
+  width: 100%;
+  height: 0.5px; /* Adjust the thickness of the underline */
+  background-color: #ffffff; /* Color of the underline */
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link1:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.extra {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4vw;
+}
+
+.foot > .foot-links > p > a {
+  font-family: NHDL;
+  font-weight: 100;
+  font-size: 1.5vw;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.extra > p > a {
+  font-family: NHDL;
+  font-weight: 100;
+  font-size: 1.5vw;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+}
